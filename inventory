@@ -1,5 +1,4 @@
-[webservers]
- ec2-35-158-239-61.eu-central-1.compute.amazonaws.com  ansible_user=ec2-user
+ubuntu@172.31.39.90
  
 
 
