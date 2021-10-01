@@ -3,9 +3,9 @@
   become: True
   tasks:
     - name: Install packages
-      yum:
+      apt:
         name: "httpd"
-        state: "present"
+        state: "latest"
     - name: Start Apache server
       service:
         name: httpd
