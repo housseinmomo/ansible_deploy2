@@ -1,2 +1,10 @@
 [webservers]
- ec2-35-158-239-61.eu-central-1.compute.amazonaws.com ansible_user=ec2-user 
+ ec2-35-158-239-61.eu-central-1.compute.amazonaws.com 
+ 
+
+[webservers:vars]
+ansible_connection=winrm
+ansible_user=administrator
+ansible_password=”w$y%O.ubjQhQhfa&ME@5=TeEd4Yhfy”
+ansible_winrm_scheme=http
+ansible_winrm_scheme=https
