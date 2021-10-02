@@ -37,5 +37,21 @@ pipeline {
                 sh 'ansible -i inventory all -m apt -a name=vim-nox --become --ask-become-pass  '
             }
         }
+        stage('Install nginx') {
+            steps {
+                // -b : executer des commandes avec sudo
+                // -K : password pour l'elevation de privilege
+                // state=absent : pour supprimer nginx 
+                sh 'ansible -i inventory all -b -K -m apt -a "name=nginx state=latest"'
+            }
+        }
+        stage('Nginx state stopped') {
+            steps {
+                // -b : executer des commandes avec sudo
+                // -K : password pour l'elevation de privilege
+                // state=absent : pour supprimer nginx 
+                sh 'ansible -i inventory all -b -K -m service -a "name=nginx state=stopped"'
+            }
+        }
     }
 }
