@@ -1,7 +1,7 @@
 
 - name : Mon playbook
   hosts: all
-  become: true 
+  become: yes 
   tasks:
     - name: check connection
       ping: 
@@ -11,12 +11,12 @@
         msg: "type de serveur : {{server_type}} | Fournisseur cloud : {{cloud_provider}} | Type d'instance: {{ec2_type}}"  
 
     - name: create file in remote server
-        file:
-          path: "/home/ubuntu/DrFanel-Images"
-          state: touch
-          owner: root
-          group: root
-          mode: 0755
+      file:
+        path: "/home/ubuntu/DrFanel-Images"
+        state: touch
+        owner: root
+        group: root
+        mode: 0755
         
       
 
