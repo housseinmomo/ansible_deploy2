@@ -12,7 +12,7 @@
 
     - name: create file in remote server
       file:
-        path: "/home/ubuntu/DrFanel-Images"
+        path: "/home/ubuntu/DrFanel-Images/remote-file.txt"
         state: touch
         owner: root
         group: root
