@@ -37,10 +37,10 @@
     - name: store the information of the file created
       stat:
         path: "/home/mugen/mugen.txt"
-      register: mugen.txt_metadata
+      register: mugen_file_metadata
 
     - name: check if the file exists
       debug:
-        msg: "the file created by for user mugen exist : {{mugen.txt_metadata.stat.exists}}"
-      
+        msg: "the file created by for user mugen exist : {{mugen_file_metadata.stat.exists}}"
+
 
