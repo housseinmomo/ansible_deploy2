@@ -5,6 +5,7 @@
   tasks:
     - name : webservers-group caracteristique
       debug:
-        msg: {{"server_type"}}
-        msg: {{"cloud_provider"}}
-        msg: {{"ec2_type"}}
+        msg: "{{server_type}}"
+        msg: "{{cloud_provider}}"
+        msg: "{{ec2_type}}"
+
