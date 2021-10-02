@@ -1,12 +1,22 @@
 
 - name : Mon playbook
   hosts: all
-  become: true 
+  become: yes 
   tasks:
-    - name : webservers-group caracteristique
+    - name: check connection
+      ping: 
+
+    - name: webservers-group caracteristique
       debug:
         msg: "type de serveur : {{server_type}} | Fournisseur cloud : {{cloud_provider}} | Type d'instance: {{ec2_type}}"  
-      
+
+    - name: create file in remote server
+        file:
+          path: "/home/ubuntu/DrFanel-Images"
+          state: touch
+          owner: root
+          group: root
+          mode: 0755
         
       
 
