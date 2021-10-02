@@ -1,6 +1,6 @@
 
 - name : Mon playbook
-  host: all
+  hosts: all
   become: true 
   tasks:
     - name : webservers-group caracteristique
