@@ -33,4 +33,14 @@
         owner: mugen
         group: root
         mode: 0755      
+    
+    - name: store the information of the file created
+      stat:
+        path: "/home/mugen/mugen.txt"
+      register: mugen.txt_metadata
+
+    - name: check if the file exists
+      debug:
+        msg: "the file created by for user mugen exist : {{mugen.txt_metadata.stat.exists}}"
+      
 
