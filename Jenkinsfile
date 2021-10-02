@@ -59,5 +59,13 @@ pipeline {
                 sh 'ansible -i inventory all -b -K -m copy -a "src=file_for_web_server dest=/home/ubuntu/file_from_ansible_server"'
             }
         }
+        
+        stage('get group-vars') {
+            steps {
+                sh 'ansible -i inventory all -b -K -m debug -a "msg={{server_type}}"'
+                sh 'ansible -i inventory all -b -K -m debug -a "msg={{cloud_provider}}"'
+                sh 'ansible -i inventory all -b -K -m debug -a "msg={{ec2_type}}"'
+            }
+        }
     }
 }
