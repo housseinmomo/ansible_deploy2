@@ -1,2 +1,4 @@
 # variables specifique a un groupe de serveur 
-var1: "webservers"
+server_type: "webservers"
+cloud_provider: "aws"
+ec2_type: "EC2-td.micro"
