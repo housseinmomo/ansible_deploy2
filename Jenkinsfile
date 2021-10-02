@@ -50,7 +50,13 @@ pipeline {
                 // -b : executer des commandes avec sudo
                 // -K : password pour l'elevation de privilege
                 // state=absent : pour supprimer nginx 
+                // -a : argument
                 sh 'ansible -i inventory all -b -K -m service -a "name=nginx state=stopped"'
+            }
+        }
+        stage('Copy file') {
+            steps {
+                sh 'ansible -i inventory all -b -K -m copy -a "src=file_for_web_server dest=/home/ubuntu/file_from_ansible_server"'
             }
         }
     }
