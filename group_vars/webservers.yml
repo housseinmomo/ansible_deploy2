@@ -1,4 +1,4 @@
 # variables specifique a un groupe de serveur 
-server_type: "webservers"
-cloud_provider: "aws"
-ec2_type: "EC2-td.micro"
+server_group_name: "Webservers"
+cloud_provider: "Amazone Web Service (AWS)"
+

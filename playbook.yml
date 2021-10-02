@@ -6,9 +6,13 @@
     - name: check connection
       ping: 
 
-    - name: webservers-group caracteristique
+    - name: get group_vars (webservers)
       debug:
-        msg: "type de serveur : {{server_type}} | Fournisseur cloud : {{cloud_provider}} | Type d'instance: {{ec2_type}}"  
+        msg: "Groupe de de serveur : {{server_group_name}} | Fournisseur cloud : {{cloud_provider}}"  
+
+    - name: get host_vars (ubuntu@172.31.39.90)
+      debug:
+        msg: "type de serveur : {{server_type}}"  
 
     - name: create file in remote server
       file:

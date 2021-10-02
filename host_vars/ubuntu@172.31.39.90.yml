@@ -1,1 +1,3 @@
 # variables specifique a un unique serveur
+# les host_vars l'emporte sur les group_vars (priorité)
+server_type: "EC2-td.micro"
