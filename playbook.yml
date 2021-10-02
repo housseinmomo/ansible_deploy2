@@ -14,14 +14,6 @@
       debug:
         msg: "type de serveur : {{server_type}}"  
 
-    - name: create file in remote server
-      file:
-        path: "/home/ubuntu/DrFanel-Images/remote-file.txt"
-        state: touch
-        owner: root
-        group: root
-        mode: 0755
-    
     - name: create user mugen
       user: 
         name: mugen
@@ -33,5 +25,12 @@
     - name: debug user mugen
       debug:
         var: user_mugen
-      
+
+    - name: create a file for the user
+      file:
+        path: "/home/mugen/mugen.txt"
+        state: touch
+        owner: mugen
+        group: root
+        mode: 0755      
 
