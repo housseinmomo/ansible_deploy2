@@ -6,5 +6,10 @@
     - name : webservers-group caracteristique
       debug:
         msg: "{{server_type}}"
+      debug:
+        msg: "{{cloud_provider}}"
+      debug:
+        msg: "{{ec2_type}}"
+        
       
 
