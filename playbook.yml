@@ -1,8 +1,7 @@
 
 - name : Mon playbook
   host: all
-  become: true
-  remote_user: ubuntu 
+  become: true 
   tasks:
     - name : webservers-group caracteristique
       debug:
