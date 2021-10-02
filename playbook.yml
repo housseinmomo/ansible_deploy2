@@ -17,6 +17,17 @@
         owner: root
         group: root
         mode: 0755
-        
+    
+    - name: create user mugen
+      user: 
+        name: mugen
+        state: present 
+        groups: sudo
+        password: "{{ 'malyoun123' | password_hash('sha512') }}"
+      register : user_mugen
+
+    - name: debug user mugen
+      debug:
+        var: user_mugen
       
 
