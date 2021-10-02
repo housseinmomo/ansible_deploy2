@@ -1,7 +1,7 @@
 
 - name : Mon playbook
   hosts: all
-  become: yes 
+  become: true 
   tasks:
     - name: check connection
       ping: 
