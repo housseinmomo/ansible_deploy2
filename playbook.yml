@@ -94,13 +94,15 @@
     #     - docker rm -f DrFanel-{{n}}
     #     - docker image rm -f  image_cible
 
+    - name: Delete all containers
+      shell: docker rm -f $(docker ps -a -q)
+    
+    - name: Delete all images
+      shell: docker rmi -f $(docker images -a -q)
+
     - name: "Run image : {{ image_cible }} " 
       shell: docker run -d --name DrFanel-{{n}} -p 9090:80 {{image_cible}}
 
-    - name: debug le nom de l'anciens image
-      debug: 
-        msg: "{{precedent}} "
-    
 
 
     
