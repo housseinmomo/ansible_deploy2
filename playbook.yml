@@ -79,7 +79,8 @@
 
     - name: install docker tools
       apt:
-        name: docker 
+        name: python-docker 
+        update_cache: yes
         state: present
 
     - name: login to my dockerhub account to retrieve my image
