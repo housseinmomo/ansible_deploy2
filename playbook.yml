@@ -73,7 +73,17 @@
 
     # C'est a ce niveau que je peux pull et run un container qui se trouve sur un depot distant
 
-    - name: affichage de notre image cible
+    - name: get image name 
       debug:
         msg: "the latest version of the image in dockerhub : {{ image_cible }}"
 
+    - name: install docker tools
+      apt:
+        name: docker 
+        state: present
+
+    - name: login to my dockerhub account to retrieve my image
+      docker_login:
+        username: abdoulfatah123 
+        password: malyoun123
+        email: docker@docker.io
