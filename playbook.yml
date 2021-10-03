@@ -84,8 +84,11 @@
     #     username: abdoulfatah123 
     #     password: malyoun123
     
-    - name: deploy DrFanel-Service
+    - name: retrieve image 
       shell: docker pull {{ image_cible }}
+
+    - name: list of image
+      shell: docker images
           
         
 
