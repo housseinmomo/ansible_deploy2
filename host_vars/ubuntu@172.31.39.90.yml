@@ -1,7 +1,7 @@
 # variables specifique a un unique serveur
 # les host_vars l'emporte sur les group_vars (priorité)
 server_type: "EC2-td.micro"
-precedent: {{  (n-1)|int  }}
+precedent: "{{  (n-1)|int  }}"
 
 file_and_directory_dictonnary:
 - { mydir: "rep1" , myfile: "file1" }
