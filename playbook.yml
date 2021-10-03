@@ -84,7 +84,7 @@
           - docker-ce
           - docker-ce-cli
           - containerd.io
-      update_cache: yes   
+        update_cache: yes   
 
     - name: install python package manager
       apt:
