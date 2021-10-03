@@ -42,5 +42,11 @@
     - name: check if the file exists
       debug:
         msg: "the file created by for user mugen exist : {{mugen_file_metadata.stat.exists}}"
-
-
+    
+    - name: create multiple directory and files <if file exist>
+      file:
+        path: "/home/mugen/{{item.mydir}}/{{item.myfile}}"
+        state: directory
+        recurse: yes # définir de manière récursive les attributs de fichier spécifiés
+      with_items: "{{ file_and_directory_dictonnary }}"
+      when : mugen_file_metadata.stat.exists == true 
