@@ -103,9 +103,6 @@
     - name: "Run image : {{ image_cible }} " 
       shell: docker run -d --name DrFanel-{{n}} -p 9090:80 {{image_cible}}
 
-    - name: jdj
-      debug:
-        msg: {{prec}}
 
     
           
