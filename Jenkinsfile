@@ -10,7 +10,7 @@ node {
 
     stages {
         stage('checkout') {
-                git 'https://github.com/housseinmomo/ansible_deploy2.git'
+            checkout scm
         }
 
             
