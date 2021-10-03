@@ -1,12 +1,36 @@
 pipeline {
     agent any
 
+    environment {
+        // On definie nos variable d'environnement 
+        registeryProject = "registry.gitlab.com/abdoulfatah12/mugen-project"
+        imageProject = "${registeryProject}:version-${env.BUILD_ID}"
+        img
+    }
+
     stages {
         stage('checkout') {
             steps {
                 git 'https://github.com/housseinmomo/ansible_deploy2.git'
             }
         }
+
+        stage("Build-image"){
+            steps {
+                docker.build("$imageProject" , ".")
+            }
+        }
+
+        stage("Run-image"){
+            steps {
+                 docker.image("$imageProject").withRun("--name image-$BUILD_ID -p 9090:90") {
+                     c -> 
+                    sh 'docker ps'
+                    echo 'run success'
+                }
+            }
+        }
+
         // stage('list of host') {
         //     steps {
         //         sh 'ansible -i inventory all --list-hosts'
