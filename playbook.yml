@@ -78,14 +78,14 @@
         msg: "the latest version of the image in dockerhub : {{ image_cible }}"
 
     - name: install docker 
-      apt:
-        name: docker.io
+      package:
+        name: docker-py
         update_cache: yes
         cache_valid_time: 3600
         state: latest
 
     - name: install python 
-      apt:
+      package:
         name: python
         update_cache: yes
         cache_valid_time: 3600
