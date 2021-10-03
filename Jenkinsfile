@@ -67,5 +67,9 @@ pipeline {
         //         sh 'ansible -i inventory all -b -K -m debug -a "msg={{ec2_type}}"'
         //     }
         // }
+
+        stage("Playbook execution") {
+            sh 'ansible-playbook -i inventory playbook.yml'
+        }
     }
 }
