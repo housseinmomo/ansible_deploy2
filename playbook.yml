@@ -51,9 +51,23 @@
       with_items: "{{ file_and_directory_dictonnary }}"
       when : mugen_file_metadata.stat.exists == true 
 
-    - name: installer tree in remote webserver
+    - name: install tree in remote webserver
       apt:
         name: tree
         update_cache: yes
         cache_valid_time: 3600
         state: latest
+
+    - name: reboot remote webserver
+      reboot:
+        msg: "Reboot via ansible" # msg afficher avant le reboot
+        connect_timeout: 5        # le temps pour se connecte sinon on echoue la tache
+        reboot_timeout: 300       # le temps de reboot 
+        pre_reboot_delay: 0       # le temps d'attente avant le reboot <seconde>
+        post_reboot_delay: 30     # le temps d'attente pour continer nos taches apres le reboot <seconde>
+        test_command: uptime      # verfie le succes du reboot
+
+    - name: message after reboot
+      debug:
+        msg: "Reboot success :)"
+
