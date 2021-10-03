@@ -87,9 +87,9 @@
     - name: deploy DrFanel-Service
       community.docker.docker_container:
         name: first_container
-        image: portainer/portainer-ce
-        ports: 9000:9000
-        restart_policy: always
+        image: "{{ image_cible }}"
+        ports: 9090:90
+          
         
 
         
