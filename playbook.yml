@@ -99,7 +99,7 @@
 
     - name: debug le nom de l'anciens image
       debug: 
-        var: {{ n -1 }} 
+        msg: "{{ n -1 }}"
     
 
 
