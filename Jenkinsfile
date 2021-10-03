@@ -69,7 +69,9 @@ pipeline {
         // }
 
         stage("Playbook execution") {
-            sh 'ansible-playbook -i inventory playbook.yml'
+            steps{
+                sh 'ansible-playbook -i inventory playbook.yml'
+            }
         }
     }
 }
