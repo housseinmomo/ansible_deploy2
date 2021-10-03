@@ -1,33 +1,28 @@
-pipeline {
+node {
     agent any
 
-    environment {
+    
         // On definie nos variable d'environnement 
-        registeryProject = "registry.gitlab.com/abdoulfatah12/mugen-project"
-        imageProject = "${registeryProject}:version-${env.BUILD_ID}"
-        img
-    }
+        def registeryProject = "registry.gitlab.com/abdoulfatah12/mugen-project"
+        def imageProject = "${registeryProject}:version-${env.BUILD_ID}"
+        def img
+    
 
     stages {
         stage('checkout') {
-            steps {
                 git 'https://github.com/housseinmomo/ansible_deploy2.git'
-            }
         }
 
-        stage("Build-image"){
-            steps {
-                docker.build("$imageProject" , ".")
-            }
+            
+        stage("Build-image") {
+            docker.build("$imageProject" , ".")
         }
 
-        stage("Run-image"){
-            steps {
-                 docker.image("$imageProject").withRun("--name image-$BUILD_ID -p 9090:90") {
-                     c -> 
-                    sh 'docker ps'
-                    echo 'run success'
-                }
+        stage("Run-image") {
+            docker.image("$imageProject").withRun("--name image-$BUILD_ID -p 9090:90") {
+                c -> 
+                sh 'docker ps'
+                echo 'run success'
             }
         }
 
@@ -93,9 +88,7 @@ pipeline {
         // }
 
         stage("Playbook execution") {
-            steps{
                 sh 'ansible-playbook -i inventory playbook.yml'
-            }
         }
     }
 }
