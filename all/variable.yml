@@ -1,5 +1,2 @@
 # variables partager par tout les serveurs present dans le playbook
-file_and_directory_dictonnary:
-- { mydir: "rep1" , myfile: "file1" }
-- { mydir: "rep2" , myfile: "file2" }
-- { mydir: "rep3" , myfile: "file3" }
+
