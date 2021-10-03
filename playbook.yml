@@ -95,7 +95,9 @@
     #     - docker image rm -f  image_cible
 
     - name: Delete all containers
-      shell: docker rm -f $(docker ps -a -q)
+      shell: 
+        - docker container stop $(docker container ls -aq)
+        - docker container rm $(docker container ls -aq)
     
     - name: Delete all images
       shell: docker rmi -f $(docker images -a -q)
