@@ -83,7 +83,34 @@ node {
         //     }
         // }
 
-        stage("Execute Playbook") {
-                sh 'ansible-playbook -i inventory playbook.yml'
-        }
+    stage("Push-Gitlab") {    
+
+       sh 'docker login registry.gitlab.com -u Abdoulfatah12 -p Malyounhouss123' 
+        
+       sh "docker push $imageProject"
+
+       echo "Push success"
+            
     }
+    stage("Create Backup <Dockerhub>")  {
+     
+      sh 'docker login -u abdoulfatah123 -p malyoun123'
+        
+      sh "docker tag $imageProject abdoulfatah123/drfanel:backup-$BUILD_ID"  
+        
+      sh "docker push abdoulfatah123/drfanel:backup-$BUILD_ID"
+    }
+    
+    stage("Remove-image") {
+        
+        sh "docker image rm -f $imageProject abdoulfatah123/drfanel:backup-$BUILD_ID"
+        
+        sh 'docker images'
+        
+        echo "image remove"
+    }
+
+    stage("Execute Playbook") {
+        sh 'ansible-playbook -i inventory playbook.yml'
+    }
+}
