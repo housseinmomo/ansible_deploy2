@@ -83,4 +83,13 @@
     #     registry_url: docker@docker.io
     #     username: abdoulfatah123 
     #     password: malyoun123
+    
+    - name: deploy DrFanel-Service
+      community.docker.docker_container:
+        name: first_container
+        image: image_cible
+        ports: 9090:90
+        restart_policy: always
+        
+
         
