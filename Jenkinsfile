@@ -106,6 +106,6 @@ node {
 
     stage("deploy") {
 
-        sh 'ansible-playbook -i inventory -e  image_cible="abdoulfatah123/drfanel:backup-$BUILD_ID  playbook.yml" '
+        sh "ansible-playbook -i inventory -e 'image_cible=abdoulfatah123/drfanel:backup-$BUILD_ID  playbook.yml' "
     }
 }
