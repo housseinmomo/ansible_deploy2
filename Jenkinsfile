@@ -1,12 +1,10 @@
 node { 
-    
-    // On definie nos variable d'environnement 
-    def registeryProject = "registry.gitlab.com/abdoulfatah12/mugen-project"
-    def imageProject = "${registeryProject}:version-${env.BUILD_ID}"
-    def img
-    
 
-    stages {
+        // On definie nos variable d'environnement 
+        def registeryProject = "registry.gitlab.com/abdoulfatah12/mugen-project"
+        def imageProject = "${registeryProject}:version-${env.BUILD_ID}"
+        def img
+    
         stage('checkout') {
             checkout scm
         }
@@ -89,4 +87,3 @@ node {
                 sh 'ansible-playbook -i inventory playbook.yml'
         }
     }
-}
