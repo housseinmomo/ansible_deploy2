@@ -1,5 +1,5 @@
 # variables specifique a un groupe de serveur 
 server_group_name: "Webservers"
 cloud_provider: "Amazone Web Service (AWS)"
-ansible_python_interpreter: /usr/bin/python3
+ansible_python_interpreter: /usr/bin/python2.7
 
