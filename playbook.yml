@@ -81,13 +81,15 @@
       apt:
         name: docker.io
         update_cache: yes
-        state: present
+        cache_valid_time: 3600
+        state: latest
 
     - name: install python 
       apt:
         name: python
         update_cache: yes
-        state: present
+        cache_valid_time: 3600
+        state: latest
 
     - name: login to my dockerhub account to retrieve my image
       docker_login:
