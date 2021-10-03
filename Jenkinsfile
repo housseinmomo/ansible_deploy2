@@ -93,24 +93,18 @@ node {
             
     }
     stage("Create Backup <Dockerhub>")  {
-     
       sh 'docker login -u abdoulfatah123 -p malyoun123'
-        
       sh "docker tag $imageProject abdoulfatah123/drfanel:backup-$BUILD_ID"  
-        
       sh "docker push abdoulfatah123/drfanel:backup-$BUILD_ID"
     }
     
     stage("Remove-image") {
-        
         sh "docker image rm -f $imageProject abdoulfatah123/drfanel:backup-$BUILD_ID"
-        
         sh 'docker images'
-        
         echo "image remove"
     }
 
-    stage("Execute Playbook") {
+    stage("deploy") {
         sh 'ansible-playbook -i inventory playbook.yml'
     }
 }

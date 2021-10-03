@@ -71,3 +71,5 @@
     #   debug:
     #     msg: "Reboot success :)"
 
+    # C'est a ce niveau que je peux pull et run un container qui se trouve sur un depot distant
+
