@@ -77,19 +77,10 @@
       debug:
         msg: "the latest version of the image in dockerhub : {{ image_cible }}"
    
-    - name: install python package manager
-      apt:
-        name: python3-pip
-      
-    - name: install python sdk
-      pip:
-        name:
-          - docker
-          - docker-compose
 
-    - name: login to my dockerhub account to retrieve my image
-      docker_login:
-        registry_url: docker@docker.io
-        username: abdoulfatah123 
-        password: malyoun123
+    # - name: login to my dockerhub account to retrieve my image
+    #   docker_login:
+    #     registry_url: docker@docker.io
+    #     username: abdoulfatah123 
+    #     password: malyoun123
         
