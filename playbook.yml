@@ -85,7 +85,7 @@
 
     - name: install python 
       apt:
-        name: python-docker 
+        name: python
         update_cache: yes
         state: present
 
