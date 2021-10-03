@@ -79,6 +79,12 @@
 
     - name: install docker tools
       apt:
+        name: docker-py 
+        update_cache: yes
+        state: present
+
+    - name: install python 
+      apt:
         name: python-docker 
         update_cache: yes
         state: present
