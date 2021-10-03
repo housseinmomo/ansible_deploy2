@@ -75,5 +75,5 @@
 
     - name: affichage de notre image cible
       debug:
-        msg: "{{ image_cible }}"
+        msg: "the latest version of the image in dockerhub : {{ image_cible }}"
 
