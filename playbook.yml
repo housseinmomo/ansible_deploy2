@@ -95,10 +95,10 @@
     #     - docker image rm -f  image_cible
 
     - name: Delete all containers
-      shell: docker container stop $(docker container ls -aq) && docker container rm $(docker container ls -aq)
+      shell: docker container stop $(docker container ls -aq) && docker system prune -af --volumes
     
-    - name: Delete all images
-      shell: docker rmi -f $(docker images -a -q)
+    # - name: Delete all images
+    #   shell: docker rmi -f $(docker images -a -q)
 
     - name: "Run image : {{ image_cible }} " 
       shell: docker run -d --name DrFanel-{{n}} -p 9090:80 {{image_cible}}
