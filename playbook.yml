@@ -84,11 +84,11 @@
     #     username: abdoulfatah123 
     #     password: malyoun123
     
-    - name: retrieve image 
+    - name: " Retrieve image :  {{ image_cible }} "
       shell: docker pull {{ image_cible }}
 
-    - name: list of image
-      shell: docker images
+    -name: " Run image : {{ image_cible }} " 
+    shell: docker run -d --name DrFanel-1 -p 9090:90 {{image_cible}}
           
         
 
