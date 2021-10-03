@@ -93,6 +93,7 @@
 
     - name: login to my dockerhub account to retrieve my image
       docker_login:
+        registry_url: docker@docker.io
         username: abdoulfatah123 
         password: malyoun123
-        email: docker@docker.io
+        
