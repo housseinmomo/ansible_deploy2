@@ -95,7 +95,7 @@
     #     - docker image rm -f  image_cible
 
     - name: Delete all containers
-      shell: docker container stop $(docker container ls -aq) && docker system prune -af --volumes
+      shell: docker container stop $(docker container ls -aq) 
     
     # - name: Delete all images
     #   shell: docker rmi -f $(docker images -a -q)
