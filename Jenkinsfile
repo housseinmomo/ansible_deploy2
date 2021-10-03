@@ -106,6 +106,6 @@ node {
 
     stage("deploy") {
 
-        sh 'ansible-playbook -e "image_cible=abdoulfatah123/drfanel:backup-$BUILD_ID" -e "n=$BUILD_ID" -e prec=($BUILD_ID-1) -i inventory playbook.yml'
+        sh 'ansible-playbook -e "image_cible=abdoulfatah123/drfanel:backup-$BUILD_ID" -e "n=$BUILD_ID" -e prec=$BUILD_ID-1 -i inventory playbook.yml'
     }
 }
