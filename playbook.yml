@@ -73,3 +73,7 @@
 
     # C'est a ce niveau que je peux pull et run un container qui se trouve sur un depot distant
 
+    - name: affichage de notre image cible
+      debug:
+        msg: "{{ image_cible }}"
+
