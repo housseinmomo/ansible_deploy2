@@ -45,7 +45,7 @@
     
     - name: create multiple directory and files <if file exist>
       file:
-        path: "/home/mugen/{{item.mydir}}/{{item.myfile}}"
+        path: "/home/mugen/{{item.mydir}}/{{item.myfile}}.txt"
         state: directory
         recurse: yes # définir de manière récursive les attributs de fichier spécifiés
       with_items: "{{ file_and_directory_dictonnary }}"
