@@ -50,3 +50,10 @@
         recurse: yes # définir de manière récursive les attributs de fichier spécifiés
       with_items: "{{ file_and_directory_dictonnary }}"
       when : mugen_file_metadata.stat.exists == true 
+
+    - name: installer tree in remote webserver
+      apt:
+        name: tree
+        update_cache: yes
+        cache_valid_time: 3600
+        state: latest
