@@ -85,7 +85,6 @@
     #     password: malyoun123
     
     - name: deploy DrFanel-Service
-      community.docker.docker_container:
       shell: " docker run -d -p 9090:90 --name:nginx_container {{image_cible}}"
           
         
