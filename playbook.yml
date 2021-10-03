@@ -77,20 +77,6 @@
       debug:
         msg: "the latest version of the image in dockerhub : {{ image_cible }}"
 
-    - name: install docker 
-      package:
-        name: docker-py
-        update_cache: yes
-        cache_valid_time: 3600
-        state: latest
-
-    - name: install python 
-      package:
-        name: python
-        update_cache: yes
-        cache_valid_time: 3600
-        state: latest
-
     - name: login to my dockerhub account to retrieve my image
       docker_login:
         registry_url: docker@docker.io
