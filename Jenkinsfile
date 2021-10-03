@@ -1,11 +1,9 @@
-node {
-    agent any
-
+node { 
     
-        // On definie nos variable d'environnement 
-        def registeryProject = "registry.gitlab.com/abdoulfatah12/mugen-project"
-        def imageProject = "${registeryProject}:version-${env.BUILD_ID}"
-        def img
+    // On definie nos variable d'environnement 
+    def registeryProject = "registry.gitlab.com/abdoulfatah12/mugen-project"
+    def imageProject = "${registeryProject}:version-${env.BUILD_ID}"
+    def img
     
 
     stages {
@@ -87,7 +85,7 @@ node {
         //     }
         // }
 
-        stage("Playbook execution") {
+        stage("Execute Playbook") {
                 sh 'ansible-playbook -i inventory playbook.yml'
         }
     }
