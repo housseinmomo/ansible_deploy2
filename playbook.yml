@@ -84,32 +84,18 @@
     #     username: abdoulfatah123 
     #     password: malyoun123
     
-    - name: "Retrieve image :  {{ image_cible }} "
+    - name: "Delete privious image : {{ previous_image }} "
+      shell: docker rmi -f {{ previous_image }}
+
+    - name: "Delete previous container : {{ previous_container }}"
+      shell: docker rm -f {{ previous_container }}
+
+    - name: "Retrieve new image :  {{ image_cible }} "
       shell: docker pull {{ image_cible }}
 
-    #   # Before deploying the new container, you must remove the old one
-    # - name: "Stop and remove last version of container : {{ image_cible }} and image : DrFanel-{{n}}"
-    #   shell:
-    #     - docker stop DrFanel-{{n}}
-    #     - docker rm -f DrFanel-{{n}}
-    #     - docker image rm -f  image_cible
-
-    # - name: Delete all containers
-    #   shell: docker container stop {{(docker container ls -aq)}} 
-    
-    # - name: Delete all images
-    #   shell: docker rmi -f $(docker images -a -q)
-
-    - name: "Run image : {{ image_cible }} " 
+    - name: "Run image and deploy container : {{ image_cible }} " 
       shell: docker run -d --name DrFanel-{{build_number}} -p 9090:80 {{image_cible}}
 
-    - name: Build Number 
-      debug:
-        msg: "{{build_number}}"
-
-    - name: Last Build Number
-      debug:
-        msg: "{{ last_build }}"
 
     - name: Delete previous image and container 
       debug:
