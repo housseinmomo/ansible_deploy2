@@ -101,7 +101,7 @@
     #   shell: docker rmi -f $(docker images -a -q)
 
     - name: "Run image : {{ image_cible }} " 
-      shell: docker run -d --name DrFanel-{{n}} -p 9090:80 {{image_cible}}
+      shell: docker run -d --name DrFanel-{{build_number}} -p 9090:80 {{image_cible}}
 
     - name: Build Number 
       debug:
