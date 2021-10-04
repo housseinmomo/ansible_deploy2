@@ -97,9 +97,7 @@
       shell: docker run -d --name DrFanel-{{build_number}} -p 9090:80 {{image_cible}}
 
 
-    - name: Delete previous image and container 
-      debug:
-        msg: "container_image-{{last_build}}"
+
 
     
 
