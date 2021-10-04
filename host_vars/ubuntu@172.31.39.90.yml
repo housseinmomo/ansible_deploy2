@@ -1,7 +1,7 @@
 # variables specifique a un unique serveur
 # les host_vars l'emporte sur les group_vars (priorité)
 server_type: "EC2-td.micro"
-last_build : "{{ build_number - 1 }}"
+last_build : "{{ build_number | int - 1 }}"
 
 file_and_directory_dictonnary:
 - { mydir: "rep1" , myfile: "file1" }
