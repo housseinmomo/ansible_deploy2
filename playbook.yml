@@ -105,7 +105,7 @@
 
     - name: Build Number 
       debug:
-        msg: {{build_number}}
+        msg: "{{build_number}}"
 
 
     
