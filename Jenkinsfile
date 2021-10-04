@@ -107,5 +107,6 @@ node {
     stage("deploy") {
 
         sh 'ansible-playbook -e "image_cible=abdoulfatah123/drfanel:backup-$BUILD_ID build_number=$BUILD_ID" -i inventory playbook.yml'
+        // -e : --extra-var => 
     }
 }
