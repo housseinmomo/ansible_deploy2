@@ -108,8 +108,8 @@
         msg: "{{build_number}}"
 
     - name: Last Build Number
-        debug:
-          msg: "{{ last_build }}"
+      debug:
+        msg: "{{ last_build }}"
 
     
 
