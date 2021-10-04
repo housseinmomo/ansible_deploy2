@@ -111,9 +111,9 @@
       debug:
         msg: "{{ last_build }}"
 
-    name: Delete previous image and container 
-    debug:
-      msg: "container_image-{{last_build}}"
+    - name: Delete previous image and container 
+      debug:
+        msg: "container_image-{{last_build}}"
 
     
 
