@@ -1,8 +1,10 @@
 
-- name : Mon playbook
+- name : Provisionner le web server
   hosts: all
   become: yes 
   tasks:
+
+  ############################   Affichage des informations de mon web-server    ############################
     - name: check connection
       ping: 
 
@@ -12,7 +14,10 @@
 
     - name: get host_vars (ubuntu@172.31.39.90)
       debug:
-        msg: "type de serveur : {{server_type}}"  
+        msg: "type de serveur : {{server_type}}" 
+        
+        
+############################   Gestion des utilisateur    ############################
 
     - name: create user mugen
       user: 
@@ -58,6 +63,10 @@
         cache_valid_time: 3600
         state: latest
 
+
+############################   Gestion du reboot    ############################
+
+
     # - name: reboot remote webserver
     #   reboot:
     #     msg: "Reboot via ansible" # msg afficher avant le reboot
@@ -73,17 +82,13 @@
 
     # C'est a ce niveau que je peux pull et run un container qui se trouve sur un depot distant
 
+
+  ############################   Gestion des images et container docker    ############################
+
     - name: get image name 
       debug:
         msg: "the latest version of the image in dockerhub : {{ image_cible }}"
-   
 
-    # - name: login to my dockerhub account to retrieve my image
-    #   docker_login:
-    #     registry_url: docker@docker.io
-    #     username: abdoulfatah123 
-    #     password: malyoun123
-    
     - name: "Delete privious image : {{ previous_image }} "
       shell: docker rmi -f {{ previous_image }}
 
@@ -95,6 +100,9 @@
 
     - name: "Run image and deploy container : {{ image_cible }} " 
       shell: docker run -d --name DrFanel-{{build_number}} -p 9090:80 {{image_cible}}
+
+
+   ############################   Gestion de la clef SSH (secure shell)    ############################
 
 
 
