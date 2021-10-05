@@ -133,11 +133,8 @@
     
     - name: Copy local file in remote webserver
       copy:
-        content: |
-            "Hi webserver;
-            I am {{ ansible_hostname }} server and i am your manager :)"
-        # src: /tmp/localhost_file.txt # on peut egalement utiliser l'attribue <content> | adresse au niveau du manager node
-        dest: /home/mugen            # adresse du repertoire distant <serveur distant>
+        src: /tmp/localhost_file.txt # on peut egalement utiliser l'attribue <content> | adresse au niveau du manager node
+        dest: /home/mugen/message_from_manager_node            # adresse du repertoire distant <serveur distant>
         owner: mugen
         group: root 
         mode: 0755 
