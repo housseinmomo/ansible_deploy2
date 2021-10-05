@@ -1,7 +1,7 @@
 
 - name : Provisionner le web server
   hosts: all
-  become: yes 
+  # become: yes 
   tasks:
 
   ############################   Affichage des informations de mon web-server    ############################
