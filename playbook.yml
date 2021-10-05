@@ -144,8 +144,8 @@
 
     - name: Fetch remote file from webserver
       fetch:
-        src: /home/mugen/mugen.txt
-        dest: /tmp/remote_file/index.txt
+        src: /home/mugen/mugen.txt               # file from remote webserver
+        dest: /tmp/remote_file/index.txt         # lacalhost directory where a store file
         flat: yes 
 
       
