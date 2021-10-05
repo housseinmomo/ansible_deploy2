@@ -129,6 +129,19 @@
       delegate_to: localhost # on pourrait egalement deleguer cette tache a un serveur distant (172.31.39.90) 
       run_once: yes
 
+  ############################   Gestion de transfert de fichier/repertoire avec copy    ############################
+    
+    - name: Copy local file in remote webserver
+      copy:
+        src: /tmp/localhost_file.txt # on peut egalement utiliser l'attribue <content> | adresse au niveau du manager node
+        dest: /home/mugen            # adresse du repertoire distant <serveur distant>
+        owner: mugen
+        group: root 
+        mode: 0755 
+
+      
+
+      
 
 
 
