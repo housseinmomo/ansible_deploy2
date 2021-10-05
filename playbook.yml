@@ -112,7 +112,7 @@
         state: present
         force: no            # me pas regenerer la clef si elle existe deja 
       delegate_to: localhost # executer cette tache au niveau du localhost(machiner courante)
-      run_one: yes           # executer cette tache une seule fois
+      # run_one: yes           # executer cette tache une seule fois
     
     - name: Deploy ssh public key in remote web server
       authorized_key: 
