@@ -139,6 +139,14 @@
         group: root 
         mode: 0755 
         force: yes
+  
+  ############################   Recuperer un fichier se trouvant sur le webserver    ############################
+
+    - name: Fetch remote file from webserver
+      fetch:
+        src: /home/mugen/mugen.txt
+        dest: /tmp/remote_file
+        flat: yes 
 
       
 
