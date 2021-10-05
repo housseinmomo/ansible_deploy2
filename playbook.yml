@@ -116,7 +116,7 @@
     - name: Deploy ssh public key in remote web server
       authorized_key: 
         user: mugen
-        key: " {{  lookup('file' , '/tmp/mugen_key.pub')  }} "
+        key: " {{  lookup('file' , '/tmp/mugen_key.pub')  }} " # lookup va nous permettre de retrouver notre clef publique
         state: present 
 
 
