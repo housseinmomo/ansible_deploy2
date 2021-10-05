@@ -145,7 +145,7 @@
     - name: Fetch remote file from webserver
       fetch:
         src: /home/mugen/mugen.txt
-        dest: /tmp/remote_file
+        dest: /tmp/remote_file/index.txt
         flat: yes 
 
       
