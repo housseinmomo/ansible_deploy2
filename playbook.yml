@@ -120,6 +120,15 @@
         key: " {{  lookup('file' , '/tmp/mugen_key.pub')  }} " # lookup va nous permettre de retrouver notre clef publique
         state: present 
 
+  ############################   Provisionner le localhost avec la delegation    ############################
+
+    - name: Create file in localhost
+      file:
+        path: /tmp/localhost_file.txt
+        state: touch 
+      delegate_to: localhost
+      
+
 
 
 
