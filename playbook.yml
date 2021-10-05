@@ -64,7 +64,7 @@
         state: latest
 
 
-############################   Gestion du reboot    ############################
+############################   Gestion de redemarrage de la machine distante     ############################
 
 
     # - name: reboot remote webserver
@@ -133,7 +133,10 @@
     
     - name: Copy local file in remote webserver
       copy:
-        src: /tmp/localhost_file.txt # on peut egalement utiliser l'attribue <content> | adresse au niveau du manager node
+        content: |
+          Hi webserver;
+          I am {{ ansible_hosname }} server and i am your manager :)
+        # src: /tmp/localhost_file.txt # on peut egalement utiliser l'attribue <content> | adresse au niveau du manager node
         dest: /home/mugen            # adresse du repertoire distant <serveur distant>
         owner: mugen
         group: root 
