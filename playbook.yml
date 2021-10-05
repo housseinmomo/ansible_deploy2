@@ -126,8 +126,9 @@
       file:
         path: /tmp/localhost_file.txt
         state: touch 
-      delegate_to: localhost
-      
+      delegate_to: localhost # on pourrait egalement deleguer cette tache a un serveur distant (172.31.39.90) 
+      run_once: yes
+
 
 
 
