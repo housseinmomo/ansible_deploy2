@@ -85,21 +85,21 @@
 
   ############################   Gestion des images et container docker    ############################
 
-    - name: get image name 
-      debug:
-        msg: "the latest version of the image in dockerhub : {{ image_cible }}"
+    # - name: get image name 
+    #   debug:
+    #     msg: "the latest version of the image in dockerhub : {{ image_cible }}"
 
-    - name: "Delete privious image : {{ previous_image }} "
-      shell: docker rmi -f {{ previous_image }}
+    # - name: "Delete privious image : {{ previous_image }} "
+    #   shell: docker rmi -f {{ previous_image }}
 
-    - name: "Delete previous container : {{ previous_container }}"
-      shell: docker rm -f {{ previous_container }}
+    # - name: "Delete previous container : {{ previous_container }}"
+    #   shell: docker rm -f {{ previous_container }}
 
-    - name: "Retrieve new image :  {{ image_cible }} "
-      shell: docker pull {{ image_cible }}
+    # - name: "Retrieve new image :  {{ image_cible }} "
+    #   shell: docker pull {{ image_cible }}
 
-    - name: "Run image and deploy container : {{ image_cible }} " 
-      shell: docker run -d --name DrFanel-{{build_number}} -p 9090:80 {{image_cible}}
+    # - name: "Run image and deploy container : {{ image_cible }} " 
+    #   shell: docker run -d --name DrFanel-{{build_number}} -p 9090:80 {{image_cible}}
 
 
    ############################   Gestion de la clef SSH (secure shell)    ############################
