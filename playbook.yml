@@ -105,7 +105,7 @@
    ############################   Gestion de la clef SSH (secure shell)    ############################
 
     - name: Generate pair of keys ssh in the localhost
-      openssh_keypair:
+      community.crypto.openssh_keypair:
         path: /tmp/mugen_key
         type: rsa
         size: 4096
