@@ -2,6 +2,8 @@
 - name : Provisionner le web server
   hosts: all
   become: yes 
+  vars:
+    manager_name: "Abdoulfatah"
   tasks:
 
   ############################   Affichage des informations de mon web-server    ############################
@@ -147,6 +149,16 @@
         src: /home/mugen/mugen.txt               # file from remote webserver
         dest: /tmp/remote_file/index.txt         # lacalhost directory where a store file
         flat: yes 
+
+  ############################   Le module template    ############################
+
+  # A template is a file that contains all your configuration parameters,
+  # but the dynamic values are given as variables in the Ansible
+
+  - name: My first template 
+    template: 
+      src: /home/ubuntu/template.txt.j2
+      dest: /home/mugen/template.txt
 
       
 
