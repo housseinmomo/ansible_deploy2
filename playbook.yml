@@ -155,10 +155,10 @@
   # A template is a file that contains all your configuration parameters,
   # but the dynamic values are given as variables in the Ansible
 
-  - name: My first template 
-    template: 
-      src: /home/ubuntu/template.txt.j2
-      dest: /home/mugen/template.txt
+    - name: My first template 
+      template: 
+        src: /home/ubuntu/template.txt.j2
+        dest: /home/mugen/template.txt
 
       
 
