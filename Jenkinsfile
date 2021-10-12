@@ -6,7 +6,8 @@ node {
         def img
     
         stage('checkout') {
-            checkout scm
+            // checkout scm
+            git 'https://github.com/housseinmomo/docker-microservice.git'
         }
 
             
